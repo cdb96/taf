@@ -19,9 +19,9 @@
         for(x = 0;x<originalCode.length;x++){
             var encryptedCode = originalCode[x];
             try{
-            var decryptedByte = CryptoJS.AES.decrypt(encryptedCode,pw);
-            var decryptedCode = decryptedByte.toString(CryptoJS.enc.Utf8);
-            break;
+                var decryptedByte = CryptoJS.AES.decrypt(encryptedCode,pw);
+                var decryptedCode = decryptedByte.toString(CryptoJS.enc.Utf8);
+                break;
             }
             catch(err) {}
         }
