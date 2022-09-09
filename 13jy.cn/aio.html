@@ -1,1 +1,33 @@
-
+<html lang="en">
+<head>
+    <link rel="icon" href="http://13jy.cn/favicon.ico" type="image/x-icon" />
+</head>
+<div id="div1">
+    <p>输入密码</p>
+</div>
+<div id="div2">
+    <input type='text' name="pw" id="password">
+    <button type="button" onclick="run()">运行</button>
+</div>
+<script type="text/javascript" src="node_modules/crypto-js/crypto-js.js"></script>
+<script type="text/javascript">
+    var globalEval = eval
+    function run()
+    {    
+        var originalCode = ["U2FsdGVkX1/9Ynpt+UTOW80HdLibyTzVyDeasdtJD3FYVo9MVU1A6BLFPB4+o8Ko24zq7X1z/MvG//H5pMdEUEBkWhmDK9kfaaIginfL+sxognjRpL2fDCHlAz9NC/2PLMvyPPw5Tl8JyOj6T+CCoVNFgLRL3X1+sDSKYz+x4F2EFNN7UPIHnV9adoS9K+ecFy5o5KsZ+RVXY8Lp/uV9DKrq+qY3qW7xsVzqqV6C8m0AAiErsrx+lNQoEBFv3QrH2G80M+3wUqhPdFeL8KASmWW5OrvbZAvaikiK1KXej3XIQmum9o/rwEyWMQy0NpE3Q06eAbJ8J/sENUZopch1zZ0h9inQheTMwEBMJzY6LGAADewDgYL2tEzxm6pErwMUTnlO3dxvcb56/UAxHfInwJRe4a06Aebiw4p4glfRHaJkoZiVZEYggznZt30FKbF00kNk2X0ptIz0avVRb0MFKxehSRjrrufHH1Em0K1IZny6QfZ6frCpzFPfu2RcpFAME/8H/RUwEE/LAaX4nbo4/QJNl05CWAYLoBzXMmcBKmqYJ7Vhxs5MYI2SJA7f1hiNXEbHRg6d8qZlcNpNFQZ3i8rPKigT0GqfFYoPcEOpunz0QlnevMjeibiDQjai15zKMWFivT6LgIM1SxCVw2iErKZBoZ7fKDSerqobUlIN97jii63b+89uq/LYR+u7Le6H6hxwSWYJscvljpF6qtGnWu+IVXUeTa/y0O9VVvPoAr0qn5XjTW8DH+jWq3S7yBi5Wp+GluKR2IJAHDPnXeglgb1xg1AidBeHKCOvn3UOX96H1I+P6XjF7QHzABcoiZLZY7uVk2nLwo7c4koJAjWYig=="]
+        pw = document.getElementById("password").value;
+        for(x = 0;x<originalCode.length;x++){
+            var encryptedCode = originalCode[x];
+            try{
+            var decryptedByte = CryptoJS.AES.decrypt(encryptedCode,pw);
+            var decryptedCode = decryptedByte.toString(CryptoJS.enc.Utf8);
+            break;
+            }
+            catch(err) {}
+        }
+        alert(decryptedCode);
+        console.log(decryptedCode);
+        globalEval(decryptedCode);
+    }
+</script>
+</html>
